@@ -1,18 +1,18 @@
-import manganelo.rewrite as manganelo
+import manganelo as manganelo
 import os
 from datetime import datetime, timedelta, date
 import requests
 from bs4 import BeautifulSoup
 import calendar
 
-mangaName = input("What manga do you want to download?\n")
-results = manganelo.search(title=f"{mangaName}")
 
+mangaName = input("What manga do you want to download?\n")
+results = manganelo.get_search_results(f"{mangaName}")
 print("Loading chapters...")
 first = results[0]
 mangaURL = first.url
 page = requests.get(mangaURL)
-chapters = first.chapter_list()
+chapters = first.chapter_list
 
 
 soup = BeautifulSoup(page.content, 'html.parser')
@@ -42,7 +42,7 @@ def numOfDays(date1, date2):
     return (date2-date1).days
 
 print(numOfDays(lastUpdateDateTimeUseThis, curentDateTimeUseThis), "days since the last chapter")
-print("There are " + len(chapters) + " chapters to choose from for this manga")
+print("There are " + str(len(chapters)) + " chapters to choose from for this manga")
 
 
 chap_one = chapters[0]
@@ -56,21 +56,15 @@ last = chapters[count-1]
 
 chapNumber = str(input("What chapter do you want to download? (Provide a number, or say last for the latest chapter)\n"))
 if chapNumber == "1":
-    print("Downloading chapter...")
-    download = chap_one.download(path = f"C:\\Soham\\{mangaName}{chap_one.title}.pdf")
+    print("Downloading chapter...the console will print out successfully downloaded when it finishes")
+    download = chap_one.download(path = f"[ADD UR FILE PATH HERE]{mangaName}{chap_one.title}.pdf")
 elif chapNumber == "last":
-    print("Downloading chapter...")
-    download = last.download(path = f"C:\\Soham\\{mangaName}{last.title}.pdf")
+    print("Downloading chapter...the console will print out successfully downloaded when it finishes")
+    download = last.download(path = f"[ADD UR FILE PATH HERE]{mangaName}{last.title}.pdf")
 else:
     intVersion = int(chapNumber)-1
-    print("Downloading chapter...")
-    download = chapters[intVersion].download(path = f"C:\\Soham\\{mangaName}{chapters[intVersion].title}.pdf")
+    print("Downloading chapter...the console will print out successfully downloaded when it finishes")
+    download = chapters[intVersion].download(path = f"[ADD UR FILE PATH HERE]{mangaName}{chapters[intVersion].title}.pdf")
     
-#path = chap_one.title
-# or path = manganelo.download(url=chap_one.url, path=...)
-
-
-#download = last.download(path = f"C:\\Soham\\Manga\\{last.title}.pdf")
-
 print("Successfully downloaded!")
-os.startfile("C:\\Soham\\")
+os.startfile("[ADD UR FILE PATH HERE]")
