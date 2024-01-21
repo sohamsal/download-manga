@@ -1,6 +1,6 @@
-## mini web-scraping python script that will downloads manga chapters from manganelo
+# mini web-scraping python script that will downloads manga chapters from manganelo
 
-# To use the app:
+## To use the app:
 Before anything, install both files and run:
 
 ``pip install -r requirements.txt``
