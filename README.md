@@ -1,4 +1,4 @@
-# Web-scraping Python script that fetches manga chapters from manganelo
+# script to download manga chapters
 
 ## To use the app:
 Before anything, install both files and run:
