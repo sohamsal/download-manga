@@ -55,16 +55,28 @@ last = chapters[count-1]
 
 
 chapNumber = str(input("What chapter do you want to download? (Provide a number, or say last for the latest chapter)\n"))
+print("//////////////////////\n")
 if chapNumber == "1":
+    print(chap_one.title)
+    print("here's the url (the website is rather slow, so here's the url if you get bored): " + chap_one.url)
+    download = chap_one.download(path = f"{mangaName}{chap_one.title}.pdf")
+    print("\n")
     print("Downloading chapter...the console will print out successfully downloaded when it finishes")
-    download = chap_one.download(path = f"[ADD UR FILE PATH HERE]{mangaName}{chap_one.title}.pdf")
+
 elif chapNumber == "last":
+    print(last.title)
+    print("here's the url (the website is rather slow, so here's the url if you get bored): " + last.url)
+    print("\n")
     print("Downloading chapter...the console will print out successfully downloaded when it finishes")
-    download = last.download(path = f"[ADD UR FILE PATH HERE]{mangaName}{last.title}.pdf")
+
+    download = last.download(path = f"{mangaName}{last.title}.pdf")
 else:
     intVersion = int(chapNumber)-1
+    print(chapters[intVersion].title)
+    print("here's the url (the website is rather slow, so here's the url if you get bored): " + chapters[intVersion].url)
+    print("\n")
     print("Downloading chapter...the console will print out successfully downloaded when it finishes")
-    download = chapters[intVersion].download(path = f"[ADD UR FILE PATH HERE]{mangaName}{chapters[intVersion].title}.pdf")
-    
+    download = chapters[intVersion].download(path = f"{mangaName}{chapters[intVersion].title}.pdf")
+
+print("\n")
 print("Successfully downloaded!")
-os.startfile("[ADD UR FILE PATH HERE]")
