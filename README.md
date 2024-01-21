@@ -5,11 +5,10 @@ Before anything, install both files and run:
 
 ```pip install -r requirements.txt```
 
-In mangatracker.py:
-Change the file path under the comments (#CHANGE FILE PATH BELOW) to a folder on your computer.
 
 Then run with ```py mangatracker.py``` and follow the prompts!
 
 
-Side note: I made this a while back (about 3 years ago) and it was just laying on my pc, so I decided to publish it
+Side note: I made this a while back (about 3 years ago) and I recently discovered that the manganelo API is extremely slow
+so it definitely takes some time to download chapters but it definitely still works (even if it is very janky)
 
